@@ -7,7 +7,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['jest'],
+  plugins: ['jest', 'prettier'],
   env: {
     jest: true,
   },

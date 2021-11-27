@@ -6,12 +6,13 @@
   "transform": {
     "^.+\\.(t|j)s?x?$": "babel-jest"
   },
-  "testEnvironment": "node",
+  "setupFilesAfterEnv": ["<rootDir>/test/setupTests.ts"],
+  "testEnvironment": "jsdom",
   "globals": {},
   "moduleNameMapper": {
     "^@src/(.+)$": "<rootDir>/src/$1"
   },
   "moduleFileExtensions": ["ts", "js"],
-  "transformIgnorePatterns":["/node_modules/(?!(map-obj|quick-lru))"],
+  "transformIgnorePatterns": ["/node_modules/(?!(map-obj|quick-lru))"],
   "testRegex": "(test|spec)\\.(ts|js)?$"
 }

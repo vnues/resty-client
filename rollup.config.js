@@ -7,11 +7,11 @@ import dts from 'rollup-plugin-dts';
 
 const ENV = process.env.NODE_ENV;
 const extensions = ['.ts', '.js'];
-const external = ['form-data', 'lodash.clonedeep', 'setimmediate', 'utf-8-validate', 'ws', 'node-rest-client'];
+const external = ['axios'];
 
 export default [
   {
-    input: 'src/index.ts',
+    input: 'src/client.ts',
     output: {
       file: 'lib/index.js',
       format: 'cjs',
@@ -36,7 +36,7 @@ export default [
     external,
   },
   {
-    input: 'src/index.ts',
+    input: 'src/client.ts',
     output: {
       file: 'es/index.js',
       format: 'es',
@@ -61,7 +61,7 @@ export default [
     external,
   },
   {
-    input: 'src/index.ts',
+    input: 'src/client.ts',
     output: [{ file: 'typings/index.d.ts', format: 'es' }],
     plugins: [
       typescriptPaths({
