@@ -37,11 +37,11 @@ export class Client {
   // 挂载所有请求方法的集合对象
   public apis: ApisInstance;
   // axios实例化对象
-  public axiosInstance: AxiosInstance;
+  public instance: AxiosInstance;
 
   constructor(serverMap?: ServerMap, apiMap?: ApisMap, common?: RequestOptions) {
     this.common = common || {};
-    this.axiosInstance = axios.create(common);
+    this.instance = axios.create(common);
     this.serverMap = serverMap || {};
     this.apiMap = apiMap || {};
     this.apis = {};
@@ -110,15 +110,15 @@ export class Client {
   }
 
   public request<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
-    const rest = request.rest!;
+    const rest = request.rest || {};
     let path = url;
     if (Object.keys(rest).length) {
       path = this.restful(url, rest);
     }
     // 合并公共配置
     const options = { ...this.common, ...request };
-    return this.axiosInstance.request({
-      url,
+    return this.instance.request({
+      url: path,
       ...options,
     });
   }
@@ -129,7 +129,7 @@ export class Client {
    * @param rest
    * @returns
    */
-  private restful(url: string, rest: Record<string, string>): string {
+  private restful(url: string, rest: Record<string, any>): string {
     const regex = /:[^/]*/g;
     return url.replace(regex, (p) => {
       const key = p.slice(1);
@@ -171,7 +171,7 @@ export class Client {
           result = this.rest2Combine(this.apiMap[key], config);
         }
 
-        return this.axiosInstance.request(result);
+        return this.instance.request(result);
       };
     }
   }
@@ -180,11 +180,11 @@ export class Client {
    */
   private middleware(): void {
     Client.reqMiddleware.map((middleware: Middleware) =>
-      this.axiosInstance.interceptors.request.use(middleware.onFulfilled, middleware.onRejected),
+      this.instance.interceptors.request.use(middleware.onFulfilled, middleware.onRejected),
     );
 
     Client.resMiddleware.map((middleware: Middleware) =>
-      this.axiosInstance.interceptors.response.use(middleware.onFulfilled, middleware.onRejected),
+      this.instance.interceptors.response.use(middleware.onFulfilled, middleware.onRejected),
     );
   }
 }
