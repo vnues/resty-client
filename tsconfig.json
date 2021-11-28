@@ -4,7 +4,7 @@
     "strict": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "typeRoots": ["src/types"],
-    "types": ["node", "@types/jest", "@types/jasmine-ajax"],
+    "types": ["node", "@types/jest","@types/jasmine-ajax"],
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "importHelpers": true,
     "noEmit": true,
-    "allowJs": true,
+    "allowJs": false,
     "paths": {
       "@src/*": ["src/*"]
     }
@@ -26,6 +26,6 @@
       }
     }
   },
-  "include": ["src", "test"],
+  "include": ["src", "test/apis.spec.ts"],
   "exclude": ["node_modules", "example"]
 }

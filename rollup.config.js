@@ -11,11 +11,12 @@ const external = ['axios'];
 
 export default [
   {
-    input: 'src/client.ts',
+    input: 'src/index.ts',
     output: {
       file: 'lib/index.js',
       format: 'cjs',
       sourcemap: ENV === 'dev',
+      exports: 'auto',
     },
     plugins: [
       babel({
@@ -36,7 +37,7 @@ export default [
     external,
   },
   {
-    input: 'src/client.ts',
+    input: 'src/index.ts',
     output: {
       file: 'es/index.js',
       format: 'es',
@@ -61,7 +62,7 @@ export default [
     external,
   },
   {
-    input: 'src/client.ts',
+    input: 'src/index.ts',
     output: [{ file: 'typings/index.d.ts', format: 'es' }],
     plugins: [
       typescriptPaths({

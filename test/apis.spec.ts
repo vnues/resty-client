@@ -1,4 +1,4 @@
-import Client from '@src/client';
+import Client from '@src/index';
 import { ApisMap } from 'src/types';
 import { getAjaxRequest } from './helper';
 import { AxiosResponse } from 'axios';

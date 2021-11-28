@@ -10,7 +10,7 @@ import {
 } from './types';
 
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-export default class Client {
+export class Client {
   static reqMiddleware: Middleware[] = [];
   static resMiddleware: Middleware[] = [];
 

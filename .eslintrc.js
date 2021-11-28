@@ -1,11 +1,10 @@
-module.exports = {
+module.exports={
   extends: ['alloy', 'alloy/typescript'],
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 12,
     sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
+    createDefaultProgram: true,
+    project: './tsconfig.json',
   },
   plugins: ['jest', 'prettier'],
   env: {
@@ -31,6 +30,5 @@ module.exports = {
         skipBlankLines: true,
       },
     ],
-    'no-template-curly-in-string': 'off',
   },
 };
