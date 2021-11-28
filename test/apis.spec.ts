@@ -151,29 +151,36 @@ describe('test apis library', () => {
     expect(request.method).toEqual('GET');
     expect(request.url).toEqual('https://production.com/user/20/info/18');
   });
+
+  it('test request', async () => {
+    client.get('https://production.com/user/:id/info/:age', { rest: { id: '20', age: 18 } });
+    const request = await getAjaxRequest();
+    expect(request.method).toEqual('GET');
+    expect(request.url).toEqual('https://production.com/user/20/info/18');
+  });
   it('test POST', async () => {
-    client.request('https://production.com/user/:id/info/:age', { method: 'POST', rest: { id: '20', age: 18 } });
+    client.post('https://production.com/user/:id/info/:age', { rest: { id: '20', age: 18 } });
     const request = await getAjaxRequest();
     expect(request.method).toEqual('POST');
     expect(request.url).toEqual('https://production.com/user/20/info/18');
   });
 
   it('test PUT', async () => {
-    client.request('https://production.com/user/:id/info/:age', { method: 'PUT', rest: { id: '20', age: 18 } });
+    client.put('https://production.com/user/:id/info/:age', { rest: { id: '20', age: 18 } });
     const request = await getAjaxRequest();
     expect(request.method).toEqual('PUT');
     expect(request.url).toEqual('https://production.com/user/20/info/18');
   });
 
   it('test DELETE', async () => {
-    client.request('https://production.com/user/:id/info/:age', { method: 'DELETE', rest: { id: '20', age: 18 } });
+    client.delete('https://production.com/user/:id/info/:age', { rest: { id: '20', age: 18 } });
     const request = await getAjaxRequest();
     expect(request.method).toEqual('DELETE');
     expect(request.url).toEqual('https://production.com/user/20/info/18');
   });
 
   it('test PATCH', async () => {
-    client.request('https://production.com/user/:guildID/info/:age', {
+    client.patch('https://production.com/user/:guildID/info/:age', {
       method: 'PATCH',
       rest: { guildID: '20', age: 18 },
     });

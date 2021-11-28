@@ -93,22 +93,27 @@ export class Client {
   }
 
   public get<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+    request = { ...request, method: 'GET' };
     return this.request(url, request);
   }
 
   public delete<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+    request = { ...request, method: 'DELETE' };
     return this.request(url, request);
   }
 
   public post<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+    request = { ...request, method: 'POST' };
     return this.request(url, request);
   }
 
   public put<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+    request = { ...request, method: 'PUT' };
     return this.request(url, request);
   }
 
   public patch<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+    request = { ...request, method: 'PATCH' };
     return this.request(url, request);
   }
 
