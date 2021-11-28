@@ -27,8 +27,7 @@ import resty from 'resty-client';
 
 #### Request Config
 
->  These are the available config options for making requests. Only the url is required. Requests will default to GET if method is not specified. See [axios docs](https://github.com/axios/axios#request-config)
-
+> These are the available config options for making requests. Only the url is required. Requests will default to GET if method is not specified. See [axios docs](https://github.com/axios/axios#request-config)
 
 ```ts
 {
@@ -86,7 +85,7 @@ import resty from 'resty-client';
   data: {
     firstName: 'Fred'
   },
-  
+
   // syntax alternative to send data into the body
   // method post
   // only the value is sent, not the key
@@ -183,7 +182,7 @@ import resty from 'resty-client';
   // supplies credentials.
   // This will set an `Proxy-Authorization` header, overwriting any existing
   // `Proxy-Authorization` custom headers you have set using `headers`.
-  // If the proxy server uses HTTPS, then you must set the protocol to `https`. 
+  // If the proxy server uses HTTPS, then you must set the protocol to `https`.
   proxy: {
     protocol: 'https',
     host: '127.0.0.1',
@@ -202,8 +201,8 @@ import resty from 'resty-client';
   // an alternative way to cancel Axios requests using AbortController
   signal: new AbortController().signal,
 
-  // `decompress` indicates whether or not the response body should be decompressed 
-  // automatically. If set to `true` will also remove the 'content-encoding' header 
+  // `decompress` indicates whether or not the response body should be decompressed
+  // automatically. If set to `true` will also remove the 'content-encoding' header
   // from the responses objects of all decompressed responses
   // - Node only (XHR cannot turn off decompression)
   decompress: true // default
@@ -225,7 +224,7 @@ import resty from 'resty-client';
 
     // try to parse the response string as JSON even if `responseType` is not 'json'
     forcedJSONParsing: true,
-    
+
     // throw ETIMEDOUT error instead of generic ECONNABORTED on request timeouts
     clarifyTimeoutError: false,
   }
@@ -237,7 +236,6 @@ import resty from 'resty-client';
 #### Response Schema
 
 > The response for a request contains the following information. See [axios docs](https://github.com/axios/axios#response-schema)
-
 
 ```ts
 {
@@ -382,7 +380,7 @@ const apiMap = {
 //interceptor
 resty.useReq(
   (config) => {
-    console.log('请求中间拦截器1');
+    console.log('middleware');
     const reConf = { ...config };
     reConf.headers.Authorization = 'Bearer';
     return reConf;
@@ -392,7 +390,7 @@ resty.useReq(
 // interceptor
 resty.useReq(
   (config) => {
-    console.log('请求中间拦截器2');
+    console.log('middleware');
     const reConf = { ...config };
     reConf.headers.Authorization = 'Bearer';
     return reConf;
@@ -402,7 +400,7 @@ resty.useReq(
 // interceptor
 resty.useRes(
   (result) => {
-    console.log('响应中间拦截器');
+    console.log('middleware');
     return result;
   },
   (error) => Promise.reject(error),
