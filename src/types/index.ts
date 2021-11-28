@@ -1,4 +1,4 @@
-import { AxiosPromise, AxiosRequestConfig } from 'axios';
+import { AxiosPromise, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export interface ApisMap {
   [key: string]: {
@@ -61,3 +61,5 @@ export interface Apis {
 }
 
 export type ApisInstance = Apis;
+
+export type RestyReponse<T> = AxiosResponse<T>;

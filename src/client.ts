@@ -6,6 +6,7 @@ import {
   RejectedMiddleWare,
   RequestOptions,
   ResolvedMiddleWare,
+  RestyReponse,
   ServerMap,
 } from './types';
 
@@ -92,32 +93,32 @@ export class Client {
     }
   }
 
-  public get<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+  public get<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<RestyReponse<T>> {
     request = { ...request, method: 'GET' };
     return this.request(url, request);
   }
 
-  public delete<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+  public delete<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<RestyReponse<T>> {
     request = { ...request, method: 'DELETE' };
     return this.request(url, request);
   }
 
-  public post<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+  public post<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<RestyReponse<T>> {
     request = { ...request, method: 'POST' };
     return this.request(url, request);
   }
 
-  public put<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+  public put<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<RestyReponse<T>> {
     request = { ...request, method: 'PUT' };
     return this.request(url, request);
   }
 
-  public patch<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+  public patch<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<RestyReponse<T>> {
     request = { ...request, method: 'PATCH' };
     return this.request(url, request);
   }
 
-  public request<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<AxiosResponse<T>> {
+  public request<T extends Record<string, any> = any>(url: string, request: RequestOptions): Promise<RestyReponse<T>> {
     const rest = request.rest || {};
     let path = url;
     if (Object.keys(rest).length) {
