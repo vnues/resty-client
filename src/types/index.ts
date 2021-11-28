@@ -62,4 +62,4 @@ export interface Apis {
 
 export type ApisInstance = Apis;
 
-export type RestyReponse<T> = AxiosResponse<T>;
+export type RestyResponse<T> = AxiosResponse<T>;
