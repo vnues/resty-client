@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/vnues/resty-client/compare/v0.0.1...v0.0.2) (2021-11-28)
+
+
+### Features
+
+* add RestyReponse ([70bfee0](https://github.com/vnues/resty-client/commit/70bfee0a77df16efbf8e4f0cf2bfde4646ef5e67))
+
 ### 0.0.1 (2021-11-28)
 
 
