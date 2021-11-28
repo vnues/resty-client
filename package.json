@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Simple HTTP and REST client library for Browser and Node",
   "publishConfig": {
-    "registry": "https://github.com/vnues/resty-client"
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "request",
