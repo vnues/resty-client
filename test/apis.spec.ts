@@ -52,16 +52,6 @@ describe('test apis library', () => {
     expect(Object.keys(client.apis).length).toEqual(3);
   });
 
-  // 测试无配置base是否报错
-  it('should be error without base', () => {
-    const fn = jest.fn();
-    const originConsoleErr = console.error;
-    console.error = fn;
-    Client.create({}, apiMap);
-    expect(fn).toHaveBeenCalled();
-    console.error = originConsoleErr;
-  });
-
   // 测试是否正常请求
   it('should be normal request', async () => {
     let response: AxiosResponse<any> | null = null;
@@ -183,7 +173,10 @@ describe('test apis library', () => {
   });
 
   it('test PATCH', async () => {
-    client.request('https://production.com/user/:id/info/:age', { method: 'PATCH', rest: { id: '20', age: 18 } });
+    client.request('https://production.com/user/:guildID/info/:age', {
+      method: 'PATCH',
+      rest: { guildID: '20', age: 18 },
+    });
     const request = await getAjaxRequest();
     expect(request.method).toEqual('PATCH');
     expect(request.url).toEqual('https://production.com/user/20/info/18');

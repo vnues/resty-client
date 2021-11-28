@@ -29,7 +29,7 @@ export class Client {
 
   public common: RequestOptions;
   // 默认的server配置
-  public base: string;
+  public base!: string;
   // server服务的集合
   public serverMap: ServerMap;
   // 对象形式的请求方法集合
@@ -45,10 +45,13 @@ export class Client {
     this.serverMap = serverMap || {};
     this.apiMap = apiMap || {};
     this.apis = {};
-    this.base = this.getDefault();
-    this.formatConfigUrl();
+    if (Object.keys(this.serverMap).length && Object.keys(this.apiMap).length) {
+      this.base = this.getDefault();
+      this.formatConfigUrl();
+      this.combine2Request();
+    }
+
     this.middleware();
-    this.combine2Request();
   }
   /**
    * 获取默认的配置
@@ -118,8 +121,8 @@ export class Client {
     // 合并公共配置
     const options = { ...this.common, ...request };
     return this.instance.request({
-      url: path,
       ...options,
+      url: path,
     });
   }
 
