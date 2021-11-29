@@ -1,6 +1,6 @@
 {
   "name": "resty-client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple HTTP and REST client library for Browser and Node",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

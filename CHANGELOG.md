@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/vnues/resty-client/compare/v0.0.3...v0.0.4) (2021-11-29)
+
+
+### Bug Fixes
+
+* fix params ([0020840](https://github.com/vnues/resty-client/commit/0020840f0ec9e93d05ab0e8bb158fd54d997a3c6))
+
 ### [0.0.3](https://github.com/vnues/resty-client/compare/v0.0.2...v0.0.3) (2021-11-28)
 
 
