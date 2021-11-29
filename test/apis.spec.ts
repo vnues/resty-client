@@ -37,7 +37,7 @@ Client.useRes(
   (error: any) => Promise.reject(error),
 );
 
-const client = Client.create(serverMap, apiMap);
+const client = Client.create({}, serverMap, apiMap);
 describe('test apis library', () => {
   beforeEach(() => {
     jasmine.Ajax.install();
@@ -106,7 +106,7 @@ describe('test apis library', () => {
     const resErrFn = jest.fn((error) => Promise.reject(error));
     Client.useReq(reqFn, reqErrFn);
     Client.useReq(resFn, resErrFn);
-    const client = Client.create(serverMap, apiMap);
+    const client = Client.create({}, serverMap, apiMap);
     client.apis.getBaseInfo({});
     const request = await getAjaxRequest();
     request.respondWith({
