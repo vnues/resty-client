@@ -23,8 +23,8 @@ export class Client {
     Client.resMiddleware.push({ onFulfilled, onRejected });
   }
 
-  static create(serverMap?: ServerMap, apiMap?: ApisMap, common?: RequestOptions) {
-    const client = new Client(serverMap, apiMap, common);
+  static create(common?: RequestOptions, serverMap?: ServerMap, apiMap?: ApisMap) {
+    const client = new Client(common, serverMap, apiMap);
     return client;
   }
 
@@ -40,7 +40,7 @@ export class Client {
   // axios实例化对象
   public instance: AxiosInstance;
 
-  constructor(serverMap?: ServerMap, apiMap?: ApisMap, common?: RequestOptions) {
+  constructor(common?: RequestOptions, serverMap?: ServerMap, apiMap?: ApisMap) {
     this.common = common || {};
     this.instance = axios.create(common);
     this.serverMap = serverMap || {};
