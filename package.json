@@ -56,7 +56,6 @@
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
-    "axios": "0.21.1",
     "commitizen": "^4.2.4",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
@@ -78,9 +77,6 @@
     "standard-version": "^9.3.1",
     "typescript": "^4.4.4"
   },
-  "peerDependencies": {
-    "axios": ">=0.21.1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/vnues/resty-client"
@@ -93,5 +89,8 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "axios": ">=0.21.1"
   }
 }
